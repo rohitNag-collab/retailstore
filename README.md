@@ -27,3 +27,14 @@ To run the application:
 
 ```bash
 mvn spring-boot:run
+```
+
+## Test Coverage Report Generation
+
+```bash
+mvn jacoco:report
+```
+
+Navigate to path and open with any browser : 
+
+```target/site/jacoco/index.html```
