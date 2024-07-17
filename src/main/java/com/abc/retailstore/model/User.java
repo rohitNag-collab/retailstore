@@ -8,8 +8,10 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Builder
 public class User {
 
+  private int userId;
   private String firstName;
   private String lastName;
   private boolean isEmployee;

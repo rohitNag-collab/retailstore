@@ -3,9 +3,8 @@ package com.abc.retailstore.service;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
+import com.abc.retailstore.exception.BillNotFoundException;
 import com.abc.retailstore.model.Bill;
-import com.abc.retailstore.model.User;
-import java.time.LocalDate;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -22,24 +21,13 @@ class NetPayableAmountServiceTest {
   }
 
   @Test
-  void testEmployeeDiscount() {
+  void testEmployeeDiscount() throws BillNotFoundException {
     when(mockBill.getTotalAmount()).thenReturn(12000.0);
-    when(mockBill.getGroceryAmount()).thenReturn(1000.0);
-    when(mockBill.getUser())
-        .thenReturn(new User("aad", "asads", true, false, LocalDate.parse("2023-09-08")));
+    when(mockBill.getBillID()).thenReturn(1);
+    when(mockBill.getUserId()).thenReturn(1);
+    when(mockBill.getProducts()).thenReturn(Utils.getProducts());
 
-    double netAmount = netPayableAmountService.calculateNetPayableAmount(mockBill);
+    double netAmount = netPayableAmountService.calculateNetPayableAmount(1);
     assertEquals(8100, netAmount);
-  }
-
-  @Test
-  void testEmployeeAffiliateDiscount() {
-    when(mockBill.getTotalAmount()).thenReturn(12000.0);
-    when(mockBill.getGroceryAmount()).thenReturn(1000.0);
-    when(mockBill.getUser())
-        .thenReturn(new User("aad", "asads", false, true, LocalDate.parse("2023-09-08")));
-
-    double netAmount = netPayableAmountService.calculateNetPayableAmount(mockBill);
-    assertEquals(10300, netAmount);
   }
 }

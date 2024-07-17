@@ -1,8 +1,8 @@
 package com.abc.retailstore.service;
 
-import com.abc.retailstore.model.Bill;
+import com.abc.retailstore.exception.BillNotFoundException;
 
 public interface INetPayableAmountService {
 
-  double calculateNetPayableAmount(Bill bill);
+  double calculateNetPayableAmount(Integer billId) throws BillNotFoundException;
 }

@@ -1,5 +1,6 @@
 package com.abc.retailstore.model;
 
+import java.util.List;
 import lombok.*;
 
 @Getter
@@ -7,9 +8,11 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Builder
 public class Bill {
 
-  private User user;
+  private int billID;
+  private int userId;
   private double totalAmount;
-  private double groceryAmount;
+  private List<Product> products;
 }
