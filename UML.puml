@@ -1,0 +1,33 @@
+@startuml
+
+class Bill {
+    User user;
+    double totalAmount;
+    double groceryAmount;
+}
+
+class User {
+
+    String firstName;
+    String lastName;
+    boolean isEmployee;
+    boolean isAffiliate;
+    LocalDate createDate;
+
+}
+
+Bill -- User : > Associated with a User
+
+interface INetPayableAmountService {
+   double calculateNetPayableAmount(Bill);
+}
+
+class Controller{
+
+        double INetPayableAmountService calculateNetPayableAmount;
+}
+
+Controller -> INetPayableAmountService
+
+
+@enduml
