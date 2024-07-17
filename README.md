@@ -12,7 +12,7 @@ This project calculates the net payable bill amount based on given discounts app
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/retailstore.git
+    git clone https://github.com/rohitNag-collab/retailstore.git
     ```
 
 2. Build the project:
