@@ -35,4 +35,14 @@ public class NetPayableAmountServiceTest {
         double netAmount = netPayableAmountService.calculateNetPayableAmount(mockBill);
         assertEquals(8100, netAmount);
     }
+
+    @Test
+    void testEmployeeAffiliateDiscount() {
+        when(mockBill.getTotalAmount()).thenReturn(12000.0);
+        when(mockBill.getGroceryAmount()).thenReturn(1000.0);
+        when(mockBill.getUser()).thenReturn(new User("aad", "asads", false, true, LocalDate.parse("2023-09-08")));
+
+        double netAmount = netPayableAmountService.calculateNetPayableAmount(mockBill);
+        assertEquals(10300, netAmount);
+    }
 }
