@@ -4,5 +4,5 @@ import com.abc.retailstore.model.Bill;
 
 public interface INetPayableAmountService {
 
-    double calculateNetPayableAmount(Bill bill);
+  double calculateNetPayableAmount(Bill bill);
 }

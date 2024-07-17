@@ -9,7 +9,7 @@ import lombok.*;
 @Data
 public class Bill {
 
-    private User user;
-    private double totalAmount;
-    private double groceryAmount;
+  private User user;
+  private double totalAmount;
+  private double groceryAmount;
 }

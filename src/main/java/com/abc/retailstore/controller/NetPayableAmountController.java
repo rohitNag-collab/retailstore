@@ -12,12 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v1/bill")
 public class NetPayableAmountController {
 
-    @Autowired
-    private INetPayableAmountService netPayableAmountService;
+  @Autowired private INetPayableAmountService netPayableAmountService;
 
-    @PostMapping("/netpayableamount")
-    public double calculate(@RequestBody Bill bill) {
-        return netPayableAmountService.calculateNetPayableAmount(bill);
-    }
-
+  @PostMapping("/netpayableamount")
+  public double calculate(@RequestBody Bill bill) {
+    return netPayableAmountService.calculateNetPayableAmount(bill);
+  }
 }
