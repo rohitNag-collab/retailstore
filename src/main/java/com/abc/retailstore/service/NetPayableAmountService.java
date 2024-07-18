@@ -25,10 +25,15 @@ public class NetPayableAmountService implements INetPayableAmountService {
     if (billDetails == null) {
       throw new BillNotFoundException("Bill not found, contact support : support@retail");
     }
+
     User userDetails = Utils.getUser(billDetails.getUserId());
 
     log.info("User Details : {}", userDetails);
     log.info("Bill Details : {}", billDetails);
+
+    if (userDetails == null) {
+      return billDetails.getTotalAmount() - calculateFixedDiscount(billDetails.getTotalAmount());
+    }
     boolean isCustomerMoreThan2YearsOld =
         userDetails.getCreateDate().isBefore(LocalDate.now().minusYears(2));
 
